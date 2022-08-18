@@ -1,10 +1,14 @@
-import './styles/App.css';
+import './App.css';
+import { Routes, Route,} from "react-router-dom";
+import GeneratorPage from './pages/TextGenerator/GeneratorPage.jsx';
 
 function App() {
   return (
-    <>
-      <h1>Pero AI</h1>
-    </>
+    <div className="App">
+      <Routes>
+        <Route path='/' element={<GeneratorPage/>} />
+      </Routes>
+    </div>
   );
 }
 
