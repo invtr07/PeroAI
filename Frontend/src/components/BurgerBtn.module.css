@@ -1,0 +1,23 @@
+.brg{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     height: 23px;
+     width: 22px;
+     background: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+.brg:focus{
+     outline: none;
+}
+
+.brgLine{
+     width: 23px;
+     height: 3px;
+     background-color: #4B79F8;
+
+}

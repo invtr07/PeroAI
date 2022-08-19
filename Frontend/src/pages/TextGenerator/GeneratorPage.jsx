@@ -1,11 +1,16 @@
-import Toolbar from "../../components/Toolbar.jsx";
+import Toolbar from "../../components/Toolbar";
 
-function GeneratorPage() {
+
+function GeneratorPage(props) {
+
+  
   return(
-    <div>
-      <Toolbar/>
-      <div></div>
-    </div>
+    <>
+      <nav> 
+        <Toolbar/>
+        <h2>Создание текста</h2>
+      </nav> 
+    </>
   )
 }
 
