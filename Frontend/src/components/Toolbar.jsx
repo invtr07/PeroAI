@@ -24,7 +24,15 @@ export default function Toolbar(props) {
   return (
     <>
       <nav className="nav">
-          <BurgerBtn click={drawerToggleHandler}/>
+        <div className='nav-Stroke'>
+          <div className='nav-action'>
+              <BurgerBtn click={drawerToggleHandler}/>
+              {props.children} 
+              <div className='empty-div'></div>
+          </div>
+          <div className='stroke'></div>
+        </div>
+        
           <SideDrawer show={drawerOpen}/>
           {backdrop}
       </nav>    

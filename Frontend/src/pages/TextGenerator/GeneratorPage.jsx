@@ -1,15 +1,13 @@
 import Toolbar from "../../components/Toolbar";
-
+import GeneratorInputs from "./Inputs";
+import "./GeneratorPage.css"
 
 function GeneratorPage(props) {
-
   
   return(
     <>
-      <nav> 
-        <Toolbar/>
-        <h2>Создание текста</h2>
-      </nav> 
+        <Toolbar><h2>Создание текста</h2></Toolbar>
+        <GeneratorInputs/>
     </>
   )
 }

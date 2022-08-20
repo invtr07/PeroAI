@@ -17,6 +17,10 @@
      transform: translateX(0);
 }
 
+.items{
+     position: fixed;
+     left: 10px;
+}
 
 .items ul{
      display: flex;
@@ -24,5 +28,7 @@
      gap: 10px;
      list-style: none;
 }
+
+
 
 

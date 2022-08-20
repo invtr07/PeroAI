@@ -11,7 +11,6 @@ import SavingsPage from './pages/Savings/SavingsPage.jsx';
 function App() {
   return (
     <div className="App">
-      
       <Routes>
         <Route path='/generator' element={<GeneratorPage/>} />
         <Route path='/brainstorm' element= {<BrainstormPage/>}/>

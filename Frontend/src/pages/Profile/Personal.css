@@ -1,0 +1,19 @@
+.profile{
+     display: flex;
+     flex-direction: column; 
+     position: relative;
+     left: 20%;
+     width: 60%;
+     gap: 50px;
+}
+
+.personal-details{
+     display: flex;
+     flex-direction: column; 
+     gap: 15px
+}
+
+.premium{
+     display: flex;
+     flex-direction: column;
+}
