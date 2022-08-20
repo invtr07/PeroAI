@@ -1,4 +1,4 @@
-.sideDrawer{
+.side-drawer{
      width: 300px;
      height: 100%;
      position: fixed;
@@ -8,12 +8,15 @@
      background-color: whitesmoke;
      box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
      z-index: 200;
-     /* transform: translateX(-100%); */
+     transform: translateX(-200%);
+     transition: transform 0.3s ease-out;
+
 }
 
-.sideDrawer.open{
-     /* transform: translateX(0); */
+.side-drawer.open{
+     transform: translateX(0);
 }
+
 
 .items ul{
      display: flex;

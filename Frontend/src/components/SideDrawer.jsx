@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import classes from './SideDrawer.module.css'
+import './SideDrawer.css'
 import { Divider} from '@mui/material/'
 
 
@@ -15,31 +15,31 @@ export default function SideDrawer(props) {
   
     let drawerClass= 'side-drawer';
 
-    if(props.show){
+    if(props.show==true){
       drawerClass= 'side-drawer open'
     }
 
   return(
     <>
-          <nav className={classes.sideDrawer}>
-              <div className={classes.items}>
+          <nav className={drawerClass}>
+              <div className="items">
                 <ul>
                   <h2>Режимы</h2>
 
-                  <li><NavLink style={activeLinkStyle} to="/generator">Создание текста</NavLink></li>
+                  <NavLink style={activeLinkStyle} to="/generator">Создание текста</NavLink>
 
-                  <li><NavLink style={activeLinkStyle} to="/brainstorm">Мозговой штурм</NavLink></li>
+                  <NavLink style={activeLinkStyle} to="/brainstorm">Мозговой штурм</NavLink>
 
-                  <li><NavLink style={activeLinkStyle} to="/writinghelper">Помощник писателя</NavLink></li>
+                  <NavLink style={activeLinkStyle} to="/writinghelper">Помощник писателя</NavLink>
 
                   {/* later adjust location and thickness of the divider below */}
                   <Divider style={{margin: "10%",backgroundColor:"#6474EA"}}/>
                   
                   <h2>Другое</h2>
 
-                  <li><NavLink style={activeLinkStyle} to="/saving">Сохраненные</NavLink></li>
+                 <NavLink style={activeLinkStyle} to="/saving">Сохраненные</NavLink>
                   
-                  <li><NavLink style={activeLinkStyle} to="/profile">Профиль</NavLink></li>
+                  <NavLink style={activeLinkStyle} to="/profile">Профиль</NavLink>
                   
                 </ul>
               </div>
