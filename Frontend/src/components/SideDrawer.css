@@ -20,15 +20,24 @@
 .items{
      position: fixed;
      left: 10px;
+     margin-top: 15%;
 }
 
 .items ul{
      display: flex;
      flex-direction: column;
      gap: 10px;
-     list-style: none;
+     /* list-style: none; */
 }
 
+li::marker{
+     list-style: circle;
+}
+
+img{
+     height: 36px;
+     width: 26px;
+}
 
 
 

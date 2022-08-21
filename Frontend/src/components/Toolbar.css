@@ -2,24 +2,43 @@
      margin-top: 20px;
      margin-left: 2%;
 }
-.nav_Stroke{
+.nav-stroke{
      display: flex;
      flex-direction: column;
+     align-items: center;
+     margin-bottom: 10px;
      width: 100%;
      height: 100%;
 }
 
-.nav-action{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+
+.brg{
+     position: absolute;
+     left: 15px;
+     top: 20px;
 }
 
-.title{
-     display: flex;
-     flex-direction: column;
+/* need to style navbar for desktop */
+@media only screen and (max-width: 480px){
+     .stroke{
+          background-image: url("../assets/StrokeMobile.svg");
+          width: 144px;
+          height: 14px; 
+          margin-top: 10px;
+          margin-bottom: 15px;
+     }
+     h2{
+          margin-bottom: 0;
+          margin-top: 10px;
+     }
+     .nav-action{
+          gap: 5rem
+     }
 }
-.stroke{
-     background-image: url(../assets/stroke.svg);
-     width: 100%;
+
+/* need later to add proper doc with already adjusted size to this div */
+@media only screen and (min-width: 481px){
+     .stroke{
+          
+     }
 }

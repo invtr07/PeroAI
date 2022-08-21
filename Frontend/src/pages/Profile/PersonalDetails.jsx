@@ -18,7 +18,10 @@ export default function PersonalDetails() {
           
           <div className='premium'>     
           <h3 style={{color:"#4B79F8"}}>Версия Pero: Beginner</h3>
-          <Button variant="contained" style={style}>Получить Pero Plus</Button>
+          <Button variant="contained" 
+          style={{
+               background:'linear-gradient(to right, #4B79F8, #D15EAF)'
+               }}>Получить Pero Plus</Button>
           </div>
      </div>
   )

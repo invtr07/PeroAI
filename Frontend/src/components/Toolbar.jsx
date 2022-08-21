@@ -24,13 +24,14 @@ export default function Toolbar(props) {
   return (
     <>
       <nav className="nav">
-        <div className='nav-Stroke'>
+        <div className='nav-stroke'>
           <div className='nav-action'>
-              <BurgerBtn click={drawerToggleHandler}/>
+            <BurgerBtn click={drawerToggleHandler}/>
               {props.children} 
-              <div className='empty-div'></div>
+              <div></div>
           </div>
-          <div className='stroke'></div>
+          <div className='stroke'>
+          </div>
         </div>
         
           <SideDrawer show={drawerOpen}/>
