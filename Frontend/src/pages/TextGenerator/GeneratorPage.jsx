@@ -1,6 +1,5 @@
 import Toolbar from "../../components/Toolbar";
 import GeneratorInputs from "./Inputs";
-import "./GeneratorPage.css"
 
 function GeneratorPage(props) {
   

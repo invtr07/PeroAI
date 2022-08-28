@@ -13,12 +13,11 @@ export default function SideDrawer(props) {
     })
   
     let drawerClass= 'side-drawer';
-
-    if(props.show===true){
-      drawerClass= 'side-drawer open'
-    }
-
-
+ 
+      if(props.show===true){
+        drawerClass= 'side-drawer open'
+      }
+    
   return(
     <>
           <nav className={drawerClass}>

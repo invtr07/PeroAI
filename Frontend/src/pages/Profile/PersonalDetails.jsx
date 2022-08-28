@@ -8,7 +8,7 @@ export default function PersonalDetails() {
           background: "linearGradient(45deg, #fe6b8b 30%, #ff8e53 90%)"
      }
   return (
-     <div className='profile'>
+     <form>
           <div className='personal-details'>
                <TextField id="outlined-basic" defaultValue={"Name"} variant="outlined" />
                <TextField id="outlined-basic" defaultValue={"Email"} variant="outlined" />
@@ -23,6 +23,6 @@ export default function PersonalDetails() {
                background:'linear-gradient(to right, #4B79F8, #D15EAF)'
                }}>Получить Pero Plus</Button>
           </div>
-     </div>
+     </form>
   )
 }

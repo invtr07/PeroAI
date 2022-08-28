@@ -11,6 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
+
 export default function GeneratorInputs(props) {
   const [category, setCategory] = React.useState('');
   const [output, setOutput] = React.useState(false)
@@ -56,28 +57,33 @@ export default function GeneratorInputs(props) {
   }
 
   if(output===true){
-    outputTextArea = <TextareaAutosize 
-    aria-label="minimum height"
-    minRows={3}
-    placeholder="Output from GPT-3"
-    style={outputSize}>
+    outputTextArea = <>
+      <h3 style={{color:"#4B79F8", marginBottom:"0px"}}>Результат</h3>
+      <TextareaAutosize 
+      aria-label="minimum height"
+      minRows={3}
+      placeholder=""
+      style={outputSize}>
 
-      {/* here will go GPT-3 output */}
+        {/* here will go GPT-3 output */}
 
-    </TextareaAutosize>
-    saveButton=<Button variant="outlined" onClick={OpenConfirm}>Сохранить</Button>
+      </TextareaAutosize>
+    </>
+    saveButton=<Button style={{
+      backgroundColor: "#E2EBF5",
+      color:"#3871B7"
+      }} variant="filled" onClick={OpenConfirm}>Сохранить</Button>
   }
 
   if(confirm){
     confirmForm = <Dialog open={confirm} onClose={CloseConfirm}>
-          <DialogTitle>Назовите файл</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Имя файла"
-              type="email"
+              label="Назовите файл"
+              type="text"
               fullWidth
               variant="standard"
             />
@@ -88,7 +94,6 @@ export default function GeneratorInputs(props) {
           </DialogActions>
         </Dialog>
   }
-
 
 
   return (
@@ -106,19 +111,17 @@ export default function GeneratorInputs(props) {
           label="Категория"
           onChange={handleChange}
         >
-          <MenuItem value={"selling text"}>Продающий</MenuItem>
-          <MenuItem value={"educational or informational text"}>Информационный</MenuItem>
-          <MenuItem value={"entertaining text"}>Развлекательный</MenuItem>
+          <MenuItem value={"Продающий"}>Продающий</MenuItem>
+          <MenuItem value={"Информационный"}>Информационный</MenuItem>
+          <MenuItem value={"Развлекательный"}>Развлекательный</MenuItem>
         </Select>
       </FormControl>
-
+      {outputTextArea}
+      {saveButton}
+      {confirmForm}
       <Button onClick={getOutputText} style={{backgroundColor: "#4B79F8"}} variant="contained">
         {output ? "Повторная генерация" : "Сгенерировать"}
       </Button>
-      {saveButton}
-      {outputTextArea}
-      {confirmForm}
-
     </form>
   )
 }
