@@ -27,9 +27,17 @@
      margin-top: 3px;
 }
 
+/* .copy-icon:hover{
+     background-color: #000000;
+} */
+
 .delete-icon{
      background-image: url(./DeleteIcon.svg);
      width: 18.86px;
      height: 21.57px;
      cursor: pointer
 }
+
+/* .delete-icon:hover{
+     background-color: #000000;
+} */
