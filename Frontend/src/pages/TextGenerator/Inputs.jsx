@@ -9,7 +9,6 @@ import Select from '@mui/material/Select';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
 
 
 export default function GeneratorInputs(props) {
@@ -22,11 +21,10 @@ export default function GeneratorInputs(props) {
   };
 
   const getOutputText =()=>{
-    setOutput(true)
-  }
+    output ? setOutput(false) : setOutput(true)
+}
 
   const OpenConfirm = () => {
-    setConfirm(true);
   };
 
   const CloseConfirm = () => {
@@ -119,6 +117,7 @@ export default function GeneratorInputs(props) {
       {outputTextArea}
       {saveButton}
       {confirmForm}
+      
       <Button onClick={getOutputText} style={{backgroundColor: "#4B79F8"}} variant="contained">
         {output ? "Повторная генерация" : "Сгенерировать"}
       </Button>

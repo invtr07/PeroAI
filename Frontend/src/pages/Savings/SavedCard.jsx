@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './SavedCard.css'
 
 //mui 
-import {Card, CardContent, Divider, Typography} from '@mui/material';
+import {Card, CardContent, DialogContent, Divider, Typography} from '@mui/material';
 import { CardActionArea, CardActions } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -32,6 +32,7 @@ export default function SavedCard() {
           }
      ])
      const[confirm, setConfirm]=React.useState(false) //hook that makes Close modal appear
+     const[data, setData]=React.useState() //hook for entering data about chosen card into 
 
      const handleDelete =({key})=>{
           const itemIndex = cards.findIndex((item)=> item.key ===key);
@@ -39,36 +40,37 @@ export default function SavedCard() {
           const rightSideofArray = cards.slice(itemIndex+1, cards.length);
 
           setCards([...leftSideofArray, ...rightSideofArray]);
+          setConfirm(false)
      }
 
      //confirm before delete modal 
 
      const closeDeleteModal =()=>setConfirm(false)
 
+     const setDeleteModal =(data)=>{
+          setConfirm(true);
+          setData(data);
+     }
+
      let modal
-     const handleModal=({key})=>{
-          modal= <Dialog open={confirm} onClose={closeDeleteModal}>
-                         <DialogTitle>Confirm before deleting</DialogTitle>
+     if(confirm){
+          modal= <Dialog sx={{borderRadius:"30px"}}open={confirm} onClose={closeDeleteModal}>
+                         <DialogTitle alignSelf={"center"}>Delete File</DialogTitle>
+                         <DialogContent sx={{fontFamily:"'Roboto', sans-serif", width:"80%"}}>Are you sure you want to delete "{data.FileName}" file</DialogContent>
                          <DialogActions>
-                              <Button onClick={closeDeleteModal}>Cancel</Button>
-                              <Button>Confirm</Button>
+                              <Button variant="outlined" onClick={closeDeleteModal}>Cancel</Button>
+                              <Button variant="contained" onClick={()=>{handleDelete(data)}}>Confirm</Button>
                          </DialogActions>
                     </Dialog>
-          console.log(key)
      }
-     
-     const setDeleteConfirm =(data)=>{
-          setConfirm(true);
-          handleModal(data)
-     }
-     
-     
+          
+
   return (
     <>
           {modal}
           <div className='cards'>
                {cards.map((data)=>
-                    <Card key={data.key}>
+                    <Card sx={{boxShadow:"0px 0px 5px 0px grey"}}key={data.key}>
                          <CardActionArea>
                               <CardContent>
                                    <Typography gutterBottom variant="h6" component="div">
@@ -84,7 +86,7 @@ export default function SavedCard() {
                               <div style={{fontSize:"15px"}}>{data.createdTime}</div>
                               <div className='icons'>
                                    <div className='copy-icon'></div>
-                                   <div onClick={()=>(setDeleteConfirm(data))}className='delete-icon'></div>
+                                   <div onClick={()=>(setDeleteModal(data))}className='delete-icon'></div>
                               </div>    
                          </CardActions>
                     </Card>

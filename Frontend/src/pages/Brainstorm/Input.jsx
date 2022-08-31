@@ -7,7 +7,7 @@ export default function Input() {
      const[output, setOutput]=React.useState(false)
 
      const handleOutput=()=>{
-          setOutput(true)
+          output ? setOutput(false) : setOutput(true)
      }
      
   return (
