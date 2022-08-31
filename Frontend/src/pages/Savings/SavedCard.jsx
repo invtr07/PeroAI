@@ -63,7 +63,7 @@ export default function SavedCard() {
 
      React.useEffect(()=>{
           if(copyName.length!==0){
-               console.log(copyName)
+               // console.log(copyName)
                setcopyModal(true)
           }
           else{
@@ -85,7 +85,7 @@ export default function SavedCard() {
      if(confirm){
           deleteModal= <Dialog sx={{borderRadius:"30px"}}open={confirm} onClose={closeDeleteModal}>
                          <DialogTitle alignSelf={"center"}>Delete File</DialogTitle>
-                         <DialogContent sx={{fontFamily:"'Roboto', sans-serif", width:"80%"}}>Are you sure you want to delete "{data.FileName}" file</DialogContent>
+                         <DialogContent sx={{fontFamily:"'Roboto', sans-serif", width:"75%",marginLeft:"3%"}}>Are you sure you want to delete <b>"{data.FileName}"</b>?</DialogContent>
                          <DialogActions>
                               <Button variant="outlined" onClick={closeDeleteModal}>Cancel</Button>
                               <Button variant="contained" onClick={()=>{handleDelete(data)}}>Confirm</Button>
