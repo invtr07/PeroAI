@@ -10,26 +10,31 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 
+import { useForm, Controller } from "react-hook-form";
 
 export default function GeneratorInputs(props) {
   const [category, setCategory] = React.useState('');
   const [output, setOutput] = React.useState(false)
   const [confirm, setConfirm] = React.useState(false);
 
-  const handleChange = (event) => {
+  const { handleSubmit, reset, control } = useForm();
+
+  const handleCategory = (event) => {
     setCategory(event.target.value);
   };
 
-  const getOutputText =()=>{
-    output ? setOutput(false) : setOutput(true)
-}
-
   const OpenConfirm = () => {
+    setConfirm(true)
   };
 
   const CloseConfirm = () => {
     setConfirm(false);
   };
+
+  const onSubmit = (data) => {
+    output ? setOutput(false) : setOutput(true)
+    reset(data)
+  }
 
   let outputTextArea 
   let saveButton
@@ -61,11 +66,8 @@ export default function GeneratorInputs(props) {
       aria-label="minimum height"
       minRows={3}
       placeholder=""
-      style={outputSize}>
-
-        {/* here will go GPT-3 output */}
-
-      </TextareaAutosize>
+      style={outputSize}
+      />
     </>
     saveButton=<Button style={{
       backgroundColor: "#E2EBF5",
@@ -93,12 +95,32 @@ export default function GeneratorInputs(props) {
         </Dialog>
   }
 
-
   return (
     <form>
-      <TextField id="outlined-basic" label="Заголовок" variant="outlined" />
-      <TextField id="outlined-basic" label="Ключевые слова" variant="outlined" />
-      <TextField id="outlined-basic" label="Описание аудитории" variant="outlined" />
+      <Controller
+        control={control}
+        name="title"
+        render={({ field: { onChange, title} }) => (
+            <TextField id="outlined-basic" onChange={onChange} value={title} label="Заголовок" variant="outlined" />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="key-words"
+        render={({ field: { onChange, keywords} }) => (
+          <TextField id="outlined-basic" onChange={onChange} value={keywords} label="Ключевые слова" variant="outlined" />
+        )}
+      />
+      
+      <Controller
+        control={control}
+        name="description"
+        render={({ field: { onChange, description} }) => (
+          <TextField id="outlined-basic" onChange={onChange} value={description} label="Описание аудитории" variant="outlined" />
+        )}
+      />
+      
 
       <FormControl >
         <InputLabel id="demo-simple-select-label">Вид текста</InputLabel>
@@ -107,7 +129,7 @@ export default function GeneratorInputs(props) {
           id="demo-simple-select"
           value={category}
           label="Категория"
-          onChange={handleChange}
+          onChange={handleCategory}
         >
           <MenuItem value={"Продающий"}>Продающий</MenuItem>
           <MenuItem value={"Информационный"}>Информационный</MenuItem>
@@ -118,8 +140,8 @@ export default function GeneratorInputs(props) {
       {saveButton}
       {confirmForm}
       
-      <Button onClick={getOutputText} style={{backgroundColor: "#4B79F8"}} variant="contained">
-        {output ? "Повторная генерация" : "Сгенерировать"}
+      <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">
+          Сгенерировать
       </Button>
     </form>
   )
