@@ -8,7 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 
 export default function PersonalDetails() {
-     const {handleSubmit, control}= useForm()
+     const {handleSubmit, control, formState: {errors}}= useForm()
      const [saveModal, setSaveModal]= React.useState(false)
 
      // mock data
@@ -22,15 +22,10 @@ export default function PersonalDetails() {
           setSaveModal(false)
      }
 
-     let newData
      const onSubmit=(data)=>{
           console.log(data)
           setSaveModal(true);
      }
-
-     // const style={
-     //      background: "linearGradient(45deg, #fe6b8b 30%, #ff8e53 90%)"
-     // }
 
      let savemodal
      if(saveModal){
@@ -40,7 +35,7 @@ export default function PersonalDetails() {
           </DialogContent>
           <DialogActions>
             <Button onClick={closeModal}>Отменить</Button>
-            <Button onClick={()=>{console.log(newData)}}>Подтвердить</Button>
+            <Button>Подтвердить</Button>
           </DialogActions>
         </Dialog>
      }
@@ -59,10 +54,16 @@ export default function PersonalDetails() {
                )}/>
                <Controller control={control} 
                name="email" 
-               rules={{required: true}}
+               rules={{required: true,
+                         pattern:{
+                              value: /^\S+@\S+$/i,
+                              message: "Введите правильную эл.почту",
+                         }}}
                render={({field:{onChange}})=>(
                     <TextField id="outlined-basic" label="Электронная почта" variant="outlined" onChange={onChange} 
-                    defaultValue={userData.email}/>
+                    defaultValue={userData.email}
+                    error={Boolean(errors.email)}
+                    helperText={errors.email ? errors.email.message : ""}/>
                )}/>
                <Controller control={control} 
                name="password" 

@@ -12,7 +12,9 @@ import DialogContent from '@mui/material/DialogContent';
 import FormHelperText from '@mui/material/FormHelperText'
 
 import { useForm, Controller } from "react-hook-form";
-import { ErrorMessage } from '@hookform/error-message';
+
+import axios from 'axios'
+import cors from 'cors'
 
 export default function GeneratorInputs(props) {
   const [output, setOutput] = React.useState(false)
@@ -31,8 +33,22 @@ export default function GeneratorInputs(props) {
 
   const onSubmit = (data) => {
     output ? setOutput(false) : setOutput(true)
-    console.log(data)
+    sendData(data)
   }
+
+  const sendData = async (data) => {
+    try{
+      await axios({
+        method: "post",
+        url: "https://test-1981d-default-rtdb.europe-west1.firebasedatabase.app/", 
+        data: JSON(data),
+      })
+    }
+    catch(err){
+      console.error(err)
+    }
+  }
+  
 
   let outputTextArea 
   let saveButton
