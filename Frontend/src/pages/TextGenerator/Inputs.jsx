@@ -9,19 +9,16 @@ import Select from '@mui/material/Select';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import FormHelperText from '@mui/material/FormHelperText'
 
 import { useForm, Controller } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 export default function GeneratorInputs(props) {
-  const [category, setCategory] = React.useState('');
   const [output, setOutput] = React.useState(false)
   const [confirm, setConfirm] = React.useState(false);
 
-  const { handleSubmit, reset, control } = useForm();
-
-  const handleCategory = (event) => {
-    setCategory(event.target.value);
-  };
+  const { handleSubmit, control, formState: {errors}} = useForm();
 
   const OpenConfirm = () => {
     setConfirm(true)
@@ -31,9 +28,10 @@ export default function GeneratorInputs(props) {
     setConfirm(false);
   };
 
+
   const onSubmit = (data) => {
     output ? setOutput(false) : setOutput(true)
-    reset(data)
+    console.log(data)
   }
 
   let outputTextArea 
@@ -97,51 +95,81 @@ export default function GeneratorInputs(props) {
 
   return (
     <form>
+      {/* title */}
       <Controller
         control={control}
+        rules={{ required: true}}
         name="title"
-        render={({ field: { onChange, title} }) => (
-            <TextField id="outlined-basic" onChange={onChange} value={title} label="Заголовок" variant="outlined" />
+        render={({ field: { onChange} }) => (
+          <>
+            <TextField id="outlined-basic" onChange={onChange} label="Заголовок" variant="outlined" 
+            error={Boolean(errors.title)}
+            helperText={errors.title ? errors.title.message : ""}/>
+          </>  
         )}
       />
 
+      {/* keywords */}
       <Controller
         control={control}
-        name="key-words"
-        render={({ field: { onChange, keywords} }) => (
-          <TextField id="outlined-basic" onChange={onChange} value={keywords} label="Ключевые слова" variant="outlined" />
+        rules={{ required: true}}
+        name="keywords"
+        render={({ field: { onChange } }) => (
+          <TextField id="outlined-basic" onChange={onChange} label="Ключевые слова" variant="outlined"
+          error={Boolean(errors.keywords)}
+          helperText={errors.keywords ? errors.keywords.message : ""} />
         )}
       />
       
+      {/* audience */}
       <Controller
         control={control}
+        rules={{ required: true}}
         name="description"
-        render={({ field: { onChange, description} }) => (
-          <TextField id="outlined-basic" onChange={onChange} value={description} label="Описание аудитории" variant="outlined" />
+        render={({ field: { onChange} }) => (
+          <TextField id="outlined-basic" onChange={onChange} label="Описание аудитории" variant="outlined" 
+          error={Boolean(errors.description)}
+          helperText={errors.description ? errors.description.message : ""}/>
         )}
       />
       
-
+          {/* category select */}
       <FormControl >
-        <InputLabel id="demo-simple-select-label">Вид текста</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={category}
-          label="Категория"
-          onChange={handleCategory}
-        >
-          <MenuItem value={"Продающий"}>Продающий</MenuItem>
-          <MenuItem value={"Информационный"}>Информационный</MenuItem>
-          <MenuItem value={"Развлекательный"}>Развлекательный</MenuItem>
-        </Select>
+        <Controller 
+          control={control}
+          name="category"
+          rules={{ required: true}}
+          render={({field: {onChange, value}, fieldState})=>(
+            <>
+            <InputLabel error={!!fieldState.error} id="demo-simple-select-label">Вид текста</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={value || ''}
+              label="Категория"
+              onChange={onChange}
+              error={!!fieldState.error}
+            >
+              {["Продающий","Информационный", "Развлекательный"].map((item)=>(
+                <MenuItem key={item} value={item}>{item}</MenuItem>
+              ))}
+            </Select>
+            {/* error message */}
+            {fieldState.error ? (
+              <FormHelperText error>{fieldState.error?.message}</FormHelperText>
+            ) : null}
+            </> 
+          )}
+        />
       </FormControl>
+      
+           {/* modals */}
       {outputTextArea}
-      {saveButton}
+      {saveButton}  
       {confirmForm}
       
       <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">
-          Сгенерировать
+          {output ? "Повторная генерация" : "Сгенерировать"}
       </Button>
     </form>
   )
