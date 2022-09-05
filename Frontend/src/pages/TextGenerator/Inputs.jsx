@@ -36,17 +36,16 @@ export default function GeneratorInputs(props) {
     sendData(data)
   }
 
-  const sendData = async (data) => {
-    try{
-      await axios({
-        method: "post",
-        url: "https://test-1981d-default-rtdb.europe-west1.firebasedatabase.app/", 
-        data: JSON(data),
-      })
-    }
-    catch(err){
-      console.error(err)
-    }
+
+  async function sendData(data) {
+    await axios({
+      method: 'post',
+      url:'https://test2-ed616-default-rtdb.asia-southeast1.firebasedatabase.app/',
+      data: { data },
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+    });
   }
   
 

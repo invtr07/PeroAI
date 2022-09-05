@@ -25,7 +25,7 @@ export default function SideDrawer(props) {
                 <ul>
                   <h2>Режимы</h2>
                   {/* <img src='../assets/Vector.png'/> */}
-                  <li><NavLink style={activeLinkStyle} to="/generator">Создание текста</NavLink></li>
+                  <li><NavLink style={activeLinkStyle} to="/">Создание текста</NavLink></li>
                   <li><NavLink style={activeLinkStyle} to="/brainstorm">Мозговой штурм</NavLink></li>
                   {/* <li><NavLink style={activeLinkStyle} to="/writinghelper">Помощник писателя</NavLink></li> */}
 

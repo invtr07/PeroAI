@@ -1,0 +1,21 @@
+{
+  "name": "peroai",
+  "version": "1.0.0",
+  "description": "version 1 - pero AI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "save": "git add -A && git commit -m'updates' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invtr07/PeroAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/invtr07/PeroAI/issues"
+  },
+  "homepage": "https://github.com/invtr07/PeroAI#readme"
+}
