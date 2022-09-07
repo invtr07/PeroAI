@@ -5,8 +5,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config();
 
-const PORT = process.env.PORT ||  8000
-const URI = process.env.OUTSITE_DB_URI
+const PORT = process.env.PORT 
+
 const app = express();
 
 //using middleware
@@ -18,15 +18,6 @@ import userRoutes from './routes/user.js'
 
 //using routes
 app.use("/api", userRoutes)
-
-//db connection establishing
-// mongoose.connect(URI)
-//     .then(()=>{
-//         console.log("DB is connected")
-//     })
-//     .catch(()=>{
-//         console.log("Unable to connect to DB")
-//     })
 
 //running server
 app.listen(PORT, ()=>{
