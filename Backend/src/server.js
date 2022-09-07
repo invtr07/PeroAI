@@ -1,7 +1,6 @@
 //boilerplate code of connecting server with mongodb - from OutSite
 
 import express from 'express'
-import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config();
@@ -21,13 +20,13 @@ import userRoutes from './routes/user.js'
 app.use("/api", userRoutes)
 
 //db connection establishing
-mongoose.connect(URI)
-    .then(()=>{
-        console.log("DB is connected")
-    })
-    .catch(()=>{
-        console.log("Unable to connect to DB")
-    })
+// mongoose.connect(URI)
+//     .then(()=>{
+//         console.log("DB is connected")
+//     })
+//     .catch(()=>{
+//         console.log("Unable to connect to DB")
+//     })
 
 //running server
 app.listen(PORT, ()=>{
