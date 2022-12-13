@@ -23,10 +23,10 @@ export default function SideDrawer(props) {
           <nav className={drawerClass}>
               <div className="items">
                 <ul>
-                  <h2>Режимы</h2>
+                  <h2>Modes</h2>
                   {/* <img src='../assets/Vector.png'/> */}
-                  <li><NavLink style={activeLinkStyle} to="/">Создание текста</NavLink></li>
-                  <li><NavLink style={activeLinkStyle} to="/brainstorm">Мозговой штурм</NavLink></li>
+                  <li><NavLink style={activeLinkStyle} to="/">Tree generator</NavLink></li>
+                  {/* <li><NavLink style={activeLinkStyle} to="/brainstorm">Мозговой штурм</NavLink></li> */}
                   {/* <li><NavLink style={activeLinkStyle} to="/writinghelper">Помощник писателя</NavLink></li> */}
 
                 {/* Думаю помощник писателя это НЕ нужная фича потому что есть Граммарли и плюс это не тот рынок который нам доступен в плане бюджета (тяжело будет сделать в плане оплаты за gpt-3) */}
@@ -34,10 +34,10 @@ export default function SideDrawer(props) {
                   {/* later adjust location and thickness of the divider below */}
                   <Divider style={{width:"100%",marginTop:"10%", marginBottom: "10%", backgroundColor:"#6474EA"}}/>
                   
-                  <h2>Другое</h2>
+                  <h2>Utility</h2>
 
-                 <li><NavLink style={activeLinkStyle} to="/saving">Сохраненные</NavLink></li>
-                  <li><NavLink style={activeLinkStyle} to="/profile">Профиль</NavLink></li>
+                 <li><NavLink style={activeLinkStyle} to="/saving">Saved</NavLink></li>
+                  <li><NavLink style={activeLinkStyle} to="/profile">Profile</NavLink></li>
                   
                 </ul>
               </div>

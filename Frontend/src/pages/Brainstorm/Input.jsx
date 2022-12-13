@@ -20,13 +20,13 @@ export default function Input() {
       name="keywords"
       rules={{required:true}}
       render={({field:{ onChange }})=>(
-          <TextField style={{height:"fit-content"}} variant='outlined' label="Ключевые слова"
+          <TextField style={{height:"fit-content"}} variant='outlined' label="Keyword"
           onChange={onChange}
           error={Boolean(errors.keywords)}/>
       )}
       />
           <Output show={output}/>
-          <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">{output ? "Повторная генерация" : "Сгенерировать" }</Button> 
+          <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">{output ? "Generate again" : "Generate" }</Button> 
     </form>
   )
 }

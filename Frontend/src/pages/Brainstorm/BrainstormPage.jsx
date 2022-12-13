@@ -5,7 +5,7 @@ import Input from './Input'
 export default function BrainstormPage(props) {
   return (
      <>
-          <Toolbar><h2>Мозговой штурм</h2></Toolbar>
+          <Toolbar><h2>Enter your keyword</h2></Toolbar>
           <Input/>
      </>
   )
