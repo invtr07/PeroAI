@@ -1,9 +1,9 @@
 import { Button, TextField } from '@mui/material'
 import React from 'react'
-import Output from './Output'
+import Tree from './Tree'
 import {Controller, useForm} from 'react-hook-form'
 
-export default function Input() {
+export default function Main() {
      const[output, setOutput]=React.useState(false)
     const { handleSubmit, control, formState: {errors}} = useForm();
 
@@ -15,6 +15,8 @@ export default function Input() {
      
   return (
     <form>
+      <h2>Enter keyword</h2>
+      
       <Controller 
       control={control}
       name="keywords"
@@ -25,7 +27,7 @@ export default function Input() {
           error={Boolean(errors.keywords)}/>
       )}
       />
-          <Output show={output}/>
+          <Tree show={output}/>
           <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">{output ? "Generate again" : "Generate" }</Button> 
     </form>
   )

@@ -6,7 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 
-export default function Output(props) {
+export default function Tree(props) {
      const[confirm, setConfirm]=React.useState(false)
 
      let result

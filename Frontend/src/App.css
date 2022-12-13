@@ -24,10 +24,10 @@ body{
      form{
           display: flex;
           position: relative;
-          left: 30%;
+          left: 25%;
           flex-direction: column;
           gap: 15px;
-          width: 60%;
+          width: 50%;
           z-index: 1;
      }
      .cards{
