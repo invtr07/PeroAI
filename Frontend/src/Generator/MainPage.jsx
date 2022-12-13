@@ -1,22 +1,22 @@
 import { Button, TextField } from '@mui/material'
 import React from 'react'
-import Tree from './Tree'
 import {Controller, useForm} from 'react-hook-form'
+import {useNavigate} from 'react-router-dom';
+import './MainPage.css'
 
 export default function Main() {
-     const[output, setOutput]=React.useState(false)
+    let navigate = useNavigate();
     const { handleSubmit, control, formState: {errors}} = useForm();
 
-
-     const onSubmit=(data)=>{
-          output ? setOutput(false) : setOutput(true)
-          console.log(data)
+     const onSubmit=()=>{
+          navigate('/newtree')
      }
      
   return (
     <form>
+      <div className="logo"></div>
       <h2>Enter keyword</h2>
-      
+
       <Controller 
       control={control}
       name="keywords"
@@ -27,8 +27,7 @@ export default function Main() {
           error={Boolean(errors.keywords)}/>
       )}
       />
-          <Tree show={output}/>
-          <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">{output ? "Generate again" : "Generate" }</Button> 
+          <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#4B79F8"}} variant="contained">Generate</Button> 
     </form>
   )
 }
