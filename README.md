@@ -1,2 +1,2 @@
-# PeroAI
-version 1 - pero AI
+# TreeAi (aka PeroAI)
+
