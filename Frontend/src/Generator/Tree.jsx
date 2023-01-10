@@ -4,7 +4,6 @@ import 'reactflow/dist/style.css';
 import './Tree.css'
 
 export default function Tree(props) {
-
   const nodes = [
     {
       id: '1',

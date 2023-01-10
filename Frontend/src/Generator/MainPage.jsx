@@ -8,8 +8,9 @@ export default function Main() {
     let navigate = useNavigate();
     const { handleSubmit, control, formState: {errors}} = useForm();
 
-     const onSubmit=()=>{
+     const onSubmit=(data)=>{
           navigate('/newtree')
+          console.log(data);
      }
      
   return (
