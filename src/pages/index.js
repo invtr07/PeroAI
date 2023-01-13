@@ -4,8 +4,6 @@ import {Controller, useForm} from 'react-hook-form'
 import React from 'react'
 
 
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
 
     const { handleSubmit, control, formState: {errors}} = useForm();
@@ -19,21 +17,21 @@ export default function Home() {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="logo"></div>
-        <h2>Enter keyword</h2>
+        <h2>Enter one keyword</h2>
 
         <Controller 
           control={control}
           name="keywords"
           rules={{required:true}}
           render={({field:{ onChange, value }})=>(
-        <TextField style={{height:"fit-content"}} variant='outlined' label="Keyword"
+        <TextField style={{height:"fit-content", width:"70%"}} variant='outlined' label="Keyword"
               onChange={onChange}
               error={Boolean(errors.keywords)}
               value ={value || ""}/>
           )}
         />
         
-        <Button type="submit" style={{backgroundColor: "#4B79F8"}} variant="contained">Generate</Button> 
+        <Button type="submit" style={{backgroundColor: "#4B79F8", width: "70%"}} variant="contained">Generate</Button> 
       </form>
     </>
   )
