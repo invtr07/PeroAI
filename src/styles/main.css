@@ -1,0 +1,7 @@
+@media only screen and (min-width: 1025px) {
+     .logo{
+          background-image: url("../public/PeroLogo.svg");
+          width: 102px;
+          height: 102px;
+     }
+}
