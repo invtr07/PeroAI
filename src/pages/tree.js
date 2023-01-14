@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactFlow, { Background, Controls } from 'reactflow';
 import 'reactflow/dist/style.css'; 
+import { useAppContext } from '../context';
 
 export default function Tree() {
+  const data = useAppContext();
+  console.error(data)
 
   const nodes = [
     {
@@ -37,19 +40,19 @@ export default function Tree() {
     }
   ]
 
-  const edges = [
-    {
-      id: 'e1-2',
-      source: '0',
-      target: '1',
-      label: 'edge label'
-    }
-  ]
+  // const edges = [
+  //   {
+  //     id: 'e1-2',
+  //     source: '0',
+  //     target: '1',
+  //     label: 'edge label'
+  //   }
+  // ]
 
   return (
     <>
      <div style={{ height: '100%' }}>
-        <ReactFlow nodes={nodes} edges = {edges} >
+        <ReactFlow nodes={nodes} >
           <Background />
           <Controls />
         </ReactFlow>

@@ -1,9 +1,12 @@
 import '../styles/main.css'
-import {createContext} from 'react'
+import { AppWrapper } from '../context'
 
-const context = createContext(); 
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return(
+    <AppWrapper>
+      <Component {...pageProps} />
+    </AppWrapper>
+  )
 }
 

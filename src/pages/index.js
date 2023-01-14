@@ -1,14 +1,18 @@
 import { Button, TextField } from '@mui/material'
 import {Controller, useForm} from 'react-hook-form'
 import React from 'react'
-
+import { useRouter } from 'next/router'
+import { useAppContext } from '../context'
 
 export default function Home() {
 
+    let contextData = useAppContext();
+
     const { handleSubmit, control, formState: {errors}} = useForm();
+    const router = useRouter();
+
 
     let input;
-    let output;
 
      const onSubmit=(data, event)=>{
       input = data.keyword
@@ -32,8 +36,9 @@ export default function Home() {
           if (response.status !== 200) {
             throw data.error || new Error(`Request failed with status ${response.status}`);
           }
-          output = data
-          console.log(output)
+          contextData = data
+          console.log(contextData)
+          router.push("/tree")
 
         } catch(error) {
           // Consider implementing your own error handling logic here
