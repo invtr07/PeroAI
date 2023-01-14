@@ -32,7 +32,7 @@ body{
           align-items: center;
           gap: 15px;
           width: 30%;
-          z-index: 1;
+
      }
 }
 
@@ -46,6 +46,12 @@ body{
           align-items: center;
           gap: 15px;
           width: 60%;
-          z-index: 1;
+
      }
+}
+
+.output{
+     width: 20%;
+     height: 20%;
+     border-color: red;
 }
