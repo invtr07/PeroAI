@@ -1,11 +1,13 @@
-import React from 'react'
+import { useEffect, useContext } from 'react'
 import ReactFlow, { Background, Controls } from 'reactflow';
 import 'reactflow/dist/style.css'; 
-import { useAppContext } from '../context';
+import AppContext from '../components/context';
+
 
 export default function Tree() {
-  const data = useAppContext();
-  console.error(data)
+
+  const context = useContext(AppContext);
+  console.log(context.output)
 
   const nodes = [
     {
@@ -48,11 +50,16 @@ export default function Tree() {
   //     label: 'edge label'
   //   }
   // ]
+  
+  const proOptions = { hideAttribution: true };
 
   return (
     <>
      <div style={{ height: '100%' }}>
-        <ReactFlow nodes={nodes} >
+        <ReactFlow 
+          nodes={nodes}
+          proOptions={proOptions}
+           >
           <Background />
           <Controls />
         </ReactFlow>

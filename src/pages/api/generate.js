@@ -5,6 +5,9 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+function generatePrompt(word) {
+  return `Generate exactly 4 words that are associatiated with "${word}"`;
+}
 export default async function (req, res) {
   if (!configuration.apiKey) {
     res.status(500).json({
@@ -54,6 +57,3 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(word) {
-  return `Suggest 4 associated words with ${word}`;
-  }

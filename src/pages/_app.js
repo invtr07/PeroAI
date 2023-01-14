@@ -1,12 +1,15 @@
 import '../styles/main.css'
-import { AppWrapper } from '../context'
+import { AppContext } from '../components/context'
+import { useState } from 'react'
 
 
 export default function App({ Component, pageProps }) {
+  const [output, setOutput] = useState();
+
   return(
-    <AppWrapper>
+    <AppContext value={{output, setOutput}}>
       <Component {...pageProps} />
-    </AppWrapper>
+    </AppContext>
   )
 }
 
