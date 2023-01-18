@@ -1,7 +1,8 @@
 import { useEffect, useContext } from 'react'
 import ReactFlow, { Background, Controls } from 'reactflow';
 import 'reactflow/dist/style.css'; 
-import AppContext from '../components/context';
+import AppContext from '../components/AppContext';
+import { uuid } from 'uuidv4';
 
 
 export default function Tree() {
@@ -9,6 +10,15 @@ export default function Tree() {
   const context = useContext(AppContext);
   console.log(context.output)
 
+  useEffect(()=>{
+      const updateNodes = context.output.map(output=>{
+        return{
+          id: uuid(),
+
+        }
+    })
+  }, [context.output])
+  
   const nodes = [
     {
       id: '0',
@@ -42,15 +52,6 @@ export default function Tree() {
     }
   ]
 
-  // const edges = [
-  //   {
-  //     id: 'e1-2',
-  //     source: '0',
-  //     target: '1',
-  //     label: 'edge label'
-  //   }
-  // ]
-  
   const proOptions = { hideAttribution: true };
 
   return (

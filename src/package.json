@@ -20,6 +20,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.6.2",
-    "reactflow": "^11.4.2"
+    "reactflow": "^11.4.2",
+    "uuidv4": "^6.2.13"
   }
 }

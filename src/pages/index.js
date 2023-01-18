@@ -2,7 +2,7 @@ import { Button, TextField } from '@mui/material'
 import {Controller, useForm} from 'react-hook-form'
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
-import AppContext from '../components/context'
+import AppContext from '../components/AppContext'
 
 
 export default function Home() {
@@ -77,3 +77,4 @@ export default function Home() {
 }
 
 
+  
