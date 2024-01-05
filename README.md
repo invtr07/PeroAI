@@ -1,2 +1,2 @@
 # PeroAI
-version 1 - pero AI
+tool for brainstorming that use mindmap technique and AI
